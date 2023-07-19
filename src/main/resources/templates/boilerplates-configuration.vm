@@ -1,0 +1,142 @@
+#* @velocityproperties path="../../../../target/confluence/webapp/WEB-INF/classes/velocity.properties" runtime_root="../../../../target/confluence/webapp" *#
+#* @vtlvariable name="action" type="io.dodevops.confluence.boilerplates.action.ViewConfigurationAction" *#
+#* @vtlmacrolibrary path="../../../../target/confluence/webapp/template/includes/macros.vm" *#
+<html>
+<head>
+    #requireResource("io.dodevops.confluence.boilerplates:boilerplates-admin")
+    <title>$action.getText("boilerplates.configuration.title")</title>
+</head>
+<body>
+    #parse ( "/template/includes/actionmessages.vm" )
+    #parse ( "/template/includes/actionerrors.vm" )
+
+    <p>$action.getText("boilerplates.configuration.intro")</p>
+
+    <form action="updateconfiguration.action" method="post" class="aui"
+          id="boilerplates-configuration">
+        #form_xsrfToken()
+        <a id="boilerplates-edit" href="#edit" class="edit-link aui-button view">
+            <span class="aui-icon aui-icon-small icon-edit"></span>$action.getText("edit.name")
+        </a>
+        <h2>$action.getText("boilerplates.configuration.title")</h2>
+        <fieldset>
+
+            <!-- Space Restricted -->
+
+            <div class="field-group">
+                <label for="boilerplates-space-restricted">
+                    $action.getText("boilerplates.configuration.spaceRestricted")
+                </label>
+                <div class="edit">
+                    <input type="checkbox" class="checkbox"
+                           id="boilerplates-space-restricted"
+                           name="spaceRestricted"
+                           title="$action.getText("boilerplates.configuration.spaceRestricted")"
+                        #if ($action.getSpaceRestricted())
+                           checked="checked"
+                        #end
+                        >
+                </div>
+                <div class="view">
+                    <div id="boilerplates-space-restricted" class="field-value">
+                        #if ($action.getSpaceRestricted())
+                            $action.getText("yes.name")
+                        #else
+                            $action.getText("no.name")
+                        #end
+                    </div>
+                </div>
+                <div class="description description-textbox">
+                    $action.getText("boilerplates.configuration.spaceRestricted.description")
+                </div>
+            </div>
+
+            <!-- Boilerplate Space-->
+
+            <div class="field-group">
+                <label for="boilerplates-boilerplateSpace">
+                    $action.getText("boilerplates.configuration.boilerplateSpace")
+                </label>
+                <div class="edit">
+                    <input type="text"
+                           id="boilerplates-boilerplateSpace"
+                           name="boilerplateSpace"
+                           title="$action.getText("boilerplates.configuration.boilerplateSpace")"
+                           value="$action.getBoilerplateSpace()"
+                           class="text autocomplete-space" data-max="10"
+                           data-template="{key}"
+                        >
+                </div>
+                <div class="view">
+                    <div id="boilerplates-boilerplateSpace" class="field-value">
+                        $action.getBoilerplateSpace()
+                    </div>
+                </div>
+                <div class="description description-textbox">
+                    $action.getText("boilerplates.configuration.boilerplateSpace.description")
+                </div>
+            </div>
+
+            <!-- Label -->
+
+            <div class="field-group">
+                <label for="boilerplates-label">
+                    $action.getText("cql.field.label")
+                </label>
+                <div class="edit">
+                    <input type="text" class="text"
+                           id="boilerplates-label"
+                           name="label"
+                           title="$action.getText("cql.field.label")"
+                           value="$action.getLabel()"
+
+                        >
+                </div>
+                <div class="view">
+                    <div id="boilerplates-label" class="field-value">
+                        $action.getLabel()
+                    </div>
+                </div>
+                <div class="description description-textbox">
+                    $action.getText("boilerplates.configuration.label.description")
+                </div>
+            </div>
+
+            <!-- Grouping String -->
+
+            <div class="field-group">
+                <label for="boilerplates-grouping-string">
+                    $action.getText("boilerplates.configuration.groupingString")
+                </label>
+                <div class="edit">
+                    <input type="text" class="text"
+                           id="boilerplates-grouping-string"
+                           name="groupingString"
+                           title="$action.getText("boilerplates.configuration.groupingString")"
+                           value="$action.getGroupingString()"
+                        >
+                </div>
+                <div class="view">
+                    <div id="boilerplates-grouping-string" class="field-value">
+                        $action.getGroupingString()
+                    </div>
+                </div>
+                <div class="description description-textbox">
+                    $action.getText("boilerplates.configuration.groupingString.description")
+                </div>
+            </div>
+
+
+        </fieldset>
+
+        <div class="buttons-container">
+            <div class="buttons edit">
+                <input id="boilerplates-save" class="button submit"
+                       type="submit" value="$action.getText("save.name")">
+                <a href="viewconfiguration.action">
+                    $action.getText("cancel.name")
+                </a>
+            </div>
+        </div>
+
+</body>

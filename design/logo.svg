@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="499.205" id="Filter" width="983.919" x="20.0407" y="272.398">
+<feDropShadow dx="-3.67321e-05" dy="10" flood-color="#000000" flood-opacity="0.333" in="SourceGraphic" result="Shadow" stdDeviation="5"/>
+</filter>
+</defs>
+<g id="Ebene-1" vectornator:layerName="Ebene 1">
+<path d="M276.02 282.398L747.98 282.398L747.98 435.466L276.02 435.466L276.02 282.398ZM40.0407 435.466L512 435.466L512 588.534L40.0407 588.534L40.0407 435.466ZM512 435.546L983.959 435.546L983.959 588.615L512 588.615L512 435.546ZM276.02 588.534L747.98 588.534L747.98 741.602L276.02 741.602L276.02 588.534Z" fill="none" filter="url(#Filter)" stroke="#979797" stroke-linecap="butt" stroke-linejoin="miter" stroke-width="15" vectornator:layerName="Kurve 1" vectornator:shadowAngle="1.5708" vectornator:shadowColor="#000000" vectornator:shadowOffset="10" vectornator:shadowOpacity="0.333" vectornator:shadowRadius="10"/>
+</g>
+</svg>

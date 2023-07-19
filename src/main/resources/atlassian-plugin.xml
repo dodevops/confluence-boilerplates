@@ -1,0 +1,91 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="boilerplates"/>
+
+    <!-- add our web resources -->
+    <web-resource key="boilerplates-resources" name="boilerplates Web Resources">
+
+        <transformation extension="js">
+            <transformer key="jsI18n"/>
+        </transformation>
+
+        <transformation extension="soy">
+            <transformer key="soyTransformer">
+                <functions>
+                    com.atlassian.confluence.plugins.soy:soy-core-functions
+                </functions>
+            </transformer>
+        </transformation>
+
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+
+        <resource name="boilerplates.css" location="/css/boilerplates.css"
+                  type="download"/>
+        <resource name="boilerplates-templates.js"
+                  location="/templates/boilerplates-templates.soy"
+                  type="download"/>
+        <resource name="boilerplates.js" location="/js/boilerplates.js"
+                  type="download"/>
+        <resource name="images/" location="/images" type="download"/>
+
+        <context>editor</context>
+
+    </web-resource>
+
+    <!-- Admin -->
+
+    <web-resource key="boilerplates-admin"
+                  name="Boilerplates Admin Javascript Resources">
+        <resource name="boilerplates-admin.js"  type="download"
+                  location="/js/boilerplates-admin.js"/>
+        <resource name="boilerplates-admin.css" type="download"
+                  location="/css/boilerplates-admin.css"/>
+
+        <context>admin</context>
+
+    </web-resource>
+
+    <web-item key="boilerplates-admin-menu" name="Boilerplates"
+              section="system.admin/configuration"  weight="40">
+        <label key="boilerplates.configuration.title"/>
+        <link>/admin/boilerplates/viewconfiguration.action</link>
+        <condition class="com.atlassian.confluence.plugin.descriptor.web.conditions.ConfluenceAdministratorCondition"/>
+    </web-item>
+
+    <xwork name="boilerplates-admin-xwork"
+           key="boilerplates-admin-xwork">
+        <description>Provides administration for the Boilerplates plugin
+            .</description>
+
+        <package name="boilerplates-admin" extends="default"
+                 namespace="/admin/boilerplates">
+            <default-interceptor-ref name="validatingStack" />
+            <action name="viewconfiguration"
+                    class="io.dodevops.confluence.boilerplates.action.ViewConfigurationAction">
+                <result name="success" type="velocity">/templates/boilerplates-configuration.vm</result>
+            </action>
+            <action name="updateconfiguration" class="io.dodevops.confluence.boilerplates.action.UpdateConfigurationAction">
+                <param name="RequireSecurityToken">true</param>
+                <result name="input" type="velocity">/templates/boilerplates-configuration.vm</result>
+                <result name="success" type="redirect">viewconfiguration.action</result>
+            </action>
+        </package>
+    </xwork>
+
+    <!-- REST -->
+
+    <rest key="boilerplatesRest" path="/boilerplates" version="1.0">
+        <description>Provides REST-Ressources for the
+            boilerplates-plugin</description>
+        <package>io.dodevops.confluence.boilerplates.rest</package>
+    </rest>
+
+</atlassian-plugin>

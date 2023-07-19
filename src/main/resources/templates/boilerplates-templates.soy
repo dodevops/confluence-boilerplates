@@ -1,0 +1,66 @@
+{namespace Boilerplates.Templates}
+
+/**
+ * Creates the toolbar button
+ */
+{template .toolbar}
+    <ul class="aui-buttons rte-toolbar-group-boilerplates no-separator">
+        <li class="toolbar-item toolbar-dropdown" id="boilerplates-menu">
+            <div class="aui-dd-parent dd-allocated">
+                <a href="#"
+                   class="toolbar-trigger aui-dd-trigger aui-button aui-dropdown2-trigger"
+                   id="rte-button-boilerplates"
+                   data-tooltip="{getText('boilerplates.add')}"
+                   aria-haspopup="true"
+                   aria-owns="boilerplates-entries">
+                        <span class="icon icon-boilerplates"></span>
+                            {getText('boilerplates.add')}
+                </a>
+
+                <div id="boilerplates-entries"
+                class="aui-style-default aui-dropdown2">
+                    <ul id="boilerplates-insert-list">
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+{/template}
+
+/**
+ * Renders a submenu
+ * @param tooltip Tooltip to display
+ * @param group Group of entry
+ * @param text Name of group
+ */
+{template .submenu}
+    <li data-tooltip="{$tooltip}">
+        <a class="aui-dropdown2-sub-trigger"
+            aria-haspopup="true"
+            aria-owns="boilerplates-group-{$group}"
+            href="#">
+            {$text}
+        </a>
+
+        <div id="boilerplates-group-{$group}" class="aui-style-default
+        aui-dropdown2">
+            <ul id="boilerplates-group-entries-{$group}">
+            </ul>
+        </div>
+    </li>
+{/template}
+
+/**
+ * Renders a list entry
+ * @param tooltip Tooltip to display
+ * @param id ID of entry
+ * @param text Label for entry
+ */
+{template .entry}
+    <li data-tooltip="{$tooltip}">
+        <a id="boilerplates-entry-{$id}" data-id="{$id}" class="item-link"
+        href="#">
+            {$text}
+        </a>
+    </li>
+{/template}

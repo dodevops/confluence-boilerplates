@@ -1,0 +1,24 @@
+#boilerplates-configuration .edit {
+    display: none;
+}
+
+#boilerplates-configuration.editing .edit {
+    display: block;
+}
+
+#boilerplates-configuration.editing .view {
+    display: none;
+}
+
+#boilerplates-configuration .buttons-container {
+    padding-top: 10px;
+    margin: 0;
+}
+
+#boilerplates-configuration .buttons-container .buttons a {
+    padding-left: 10px;
+}
+
+#boilerplates-configuration h2 {
+    margin-top: 20px;
+}

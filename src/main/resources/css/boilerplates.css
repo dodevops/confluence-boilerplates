@@ -1,0 +1,7 @@
+#rte-button-boilerplates {
+    padding: 0 10px;
+}
+
+.aui-toolbar2 span.icon-boilerplates {
+    background: url(images/boilerplates-icon.png) no-repeat center;
+}
