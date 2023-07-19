@@ -9,7 +9,7 @@ Currently only supported for Confluence Server & Datacenter.
  
 ## Installation
 
-Download the latest release zip and install it using the universal plugin manager.
+Download the latest release jar and install it using the universal plugin manager.
 
 ## Configuration
 
