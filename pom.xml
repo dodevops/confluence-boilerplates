@@ -168,6 +168,7 @@
         <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Atlassian Plugins need to be Java 8 compiled as of yet -->
         <java.version>8</java.version>
         <maven.compiler.release>8</maven.compiler.release>
     </properties>
